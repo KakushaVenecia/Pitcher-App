@@ -13,8 +13,8 @@ class Config:
 
 
 class ProdConfig(Config):
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://venecia:12345@localhost/pitcherapp'
-    pass
+    SQLALCHEMY_DATABASE_URI = 'postgresql://phgjndsjwkfldg:90fe1ded08bbaa0b1907dffb064c0b7f34f88d1fec04ccf6afbc12976b021850@ec2-52-3-200-138.compute-1.amazonaws.com:5432/ddrb7i3g84eq0n'
+
 
 class TestConfig(Config):
     pass
