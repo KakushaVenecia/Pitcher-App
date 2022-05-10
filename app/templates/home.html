@@ -7,14 +7,17 @@
         one minute pitches and other users will vote on them and leave comments to give their feedback on them. </p>
 </div>
 <div>
-    <div>
-      {% for pitch in pitches %}
-        <li>{{pitch.title}}</li>
-        <p>{{pitch.post}}</p>
-        <p>{{pitch.category}}</p>
+    {% for pitch in pitches %}
+    <div class>
+        <div class="card text-black bg-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">{{pitch.title}}</div>
+            <div class="card-body">
+                <h5 class="card-title">{{pitch.category}}</h5>
+                <p class="card-text">{{pitch.post}}</p>
+            </div>
       {%endfor%}
     </div>
-
 </div>
 
 {%endblock%}
+
