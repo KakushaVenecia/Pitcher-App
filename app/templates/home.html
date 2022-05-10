@@ -6,5 +6,15 @@
     <p class="lead"> This is an application that allows YOU - Yes You! to use that one minute wisely. You can submit your
         one minute pitches and other users will vote on them and leave comments to give their feedback on them. </p>
 </div>
+<div>
+    <div>
+      {% for pitch in pitches %}
+        <li>{{pitch.title}}</li>
+        <p>{{pitch.post}}</p>
+        <p>{{pitch.category}}</p>
+      {%endfor%}
+    </div>
+
+</div>
 
 {%endblock%}
