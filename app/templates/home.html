@@ -10,9 +10,9 @@
     {% for pitch in pitches %}
     <div class>
         <div class="card text-black bg-primary mb-3" style="max-width: 20rem;">
-            <div class="card-header">{{pitch.title}}</div>
+            <h5 class="card-title">{{pitch.category}}</h5>
             <div class="card-body">
-                <h5 class="card-title">{{pitch.category}}</h5>
+                <div class="card-header">{{pitch.title}}</div>
                 <p class="card-text">{{pitch.post}}</p>
             </div>
       {%endfor%}
