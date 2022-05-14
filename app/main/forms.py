@@ -11,7 +11,10 @@ class UpdateProfile(FlaskForm):
 class NewPitchForm(FlaskForm):
     title = StringField ('Title', validators=[DataRequired()])
     post  = TextAreaField ('Best Shot', validators=[DataRequired()])
-    category = SelectField ('Best Shot', choices=[('Inspiration','Inspiration'),('Freestyle','Freestyle'),('Famous Quotes', 'Famous Quotes')] ,validators=[DataRequired()])
+    category = SelectField ('Category', choices=[('Inspiration','Inspiration'),('Freestyle','Freestyle'),('Famous Quotes', 'Famous Quotes')] ,validators=[DataRequired()])
     submit = SubmitField('Submit')
 
-    
+class CommentForm(FlaskForm):
+    comment = TextAreaField ('Comment', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
