@@ -6,31 +6,29 @@
     <p class="lead"> This is an application that allows YOU! Yes you, to use that one minute wisely. You can submit
         your
         pitches and let other users vote on them, and leave comments on them. </p>
-        <p>We are looking for the best pitch ever!</p>
-        <p> Register and Login to Contribute to the Pitches today </p>
+    <p>We are looking for the best pitch ever!</p>
+    <p> Register and Login to Contribute to the Pitches today </p>
 </div>
-
-
 <div>
     {% for pitch in pitches %}
-    <div class>
-        <div class="card text-dark bg-primary mb-3">
-            <h5 class="card-title"> Category:{{pitch.category}}</h5>
-            <div class="card-body">
-                <div class="card-header">{{pitch.title}}</div>
-                <p class="card-text">{{pitch.post}}</p>
-                <p class=" card-text">{{pitch.comments}}</p>/
-            </div>
-            <form action="/new_comment/{{current_user.id}}/{{pitch.id}}" method="POST">
-                {{comment_form.csrf_token}}
-                {{comment_form.comment}}
-                {{comment_form.submit}}
-            </form>
-            {% for comment in pitch.comment%}
-                <p class="card-text">{{comment.comment}}</p>
-            {%endfor%}
-            {%endfor%}
+<div class="card-deck">
+    <div class="card">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+            <h5 class="card-title">{{pitch.title}}</h5>
+            <p class="card-text">{{pitch.post}}</p>
+            <p class=" card-text">{{pitch.comments}}</p>
         </div>
-    </div>
+        <form action="/new_comment/{{current_user.id}}/{{pitch.id}}" method="POST">
+            {{comment_form.csrf_token}}
+            {{comment_form.comment}}
+            {{comment_form.submit}}
+        </form>
+        {% for comment in pitch.comment%}
+        <p class="card-text">Comment{{comment.comment}}</p>
+        {%endfor%}
+    {%endfor%}
+</div>
+</div>
 
     {%endblock%}
