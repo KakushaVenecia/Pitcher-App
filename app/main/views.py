@@ -26,6 +26,7 @@ def pitchs(id):
     return render_template ('pitchs.html', id=id)
 
 @main.route('/newpitch', methods = ['GET','POST'])  
+@login_required
 def newPitch():
     form = NewPitchForm() 
     
