@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {%block content%}
+<br>
+
 <div class="jumbotron text-center">
     <h1>Welcome to Pitcher App</h1>
     <p class="lead"> This is an application that allows YOU! Yes you, to use that one minute wisely. You can submit
@@ -10,11 +12,39 @@
     <p> Register and Login to Contribute to the Pitches today </p>
 </div>
 <div>
-    {% for pitch in pitches %}
-<div class="card-deck">
+<div class="card-columns">
+     {% for pitch in pitches %}
+        <div class="card" style="background-color:#9af85b">
+            <div class="card-body text-center">
+                <h5 class="card-title">Title :{{pitch.title}}</h5>
+                <p class="card-text">Pitch :{{pitch.post}}</p>
+                <!-- <p class=" card-text">{{pitch.comments}}</p> -->
+                {% for comment in pitch.comment%}
+                <p class="card-text">Comment :{{comment.comment}}</p>
+                {%endfor%}
+                <form action="/new_comment/{{current_user.id}}/{{pitch.id}}" method="POST">
+                    {{comment_form.csrf_token}}
+                    {{comment_form.comment}}
+                    <br>
+                    {{comment_form.submit}}
+                </form>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- <div class="card-deck">
     <div class="card">
         <!-- <img src="..." class="card-img-top" alt="..."> -->
-        <div class="card-body">
+<!-- <div class="card-body">
+            {% for pitch in pitches %}
             <h5 class="card-title">{{pitch.title}}</h5>
             <p class="card-text">{{pitch.post}}</p>
             <p class=" card-text">{{pitch.comments}}</p>
@@ -25,10 +55,10 @@
             {{comment_form.submit}}
         </form>
         {% for comment in pitch.comment%}
-        <p class="card-text">Comment{{comment.comment}}</p>
+        <p class="card-text">Comment :{{comment.comment}}</p>
         {%endfor%}
     {%endfor%}
 </div>
-</div>
+</div> -->
 
-    {%endblock%}
+{%endblock%}
